@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show update destroy ]
 
@@ -15,13 +17,17 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
 
-    if @user.save
-      render json: @user, status: :created, location: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
+    @user = User.new(user_params) 
+    @user.password = BCrypt::Password.create(params[:password]) 
+    render json: @user
+    # @new_user.password = 
+
+    # if @user.save
+    #   render json: @user, status: :created
+    # else
+    #   render json: @user.errors, status: :unprocessable_entity
+    # end
   end
 
   # PATCH/PUT /users/1
