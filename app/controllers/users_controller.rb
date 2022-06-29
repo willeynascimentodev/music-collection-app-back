@@ -19,15 +19,13 @@ class UsersController < ApplicationController
   def create
 
     @user = User.new(user_params) 
-    @user.password = BCrypt::Password.create(params[:password]) 
-    render json: @user
-    # @new_user.password = 
+    # @user.password = BCrypt::Password.create(params[:password]) 
 
-    # if @user.save
-    #   render json: @user, status: :created
-    # else
-    #   render json: @user.errors, status: :unprocessable_entity
-    # end
+    if @user.save
+      render json: @user, status: :created
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
   end
 
   # PATCH/PUT /users/1
@@ -52,6 +50,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:full_name, :username, :password, :role)
+      params.permit(:full_name, :username, :password, :role)
     end
 end
