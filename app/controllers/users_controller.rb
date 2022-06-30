@@ -22,16 +22,16 @@ class UsersController < ApplicationController
     # @user.password = BCrypt::Password.create(params[:password]) 
 
     if @user.save
-      render json: @user, status: :created
+      render json: @user, status: 200
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @user.errors, status: 422
     end
   end
 
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      render json: @user
+      render json: @user, status: updated
     else
       render json: @user.errors, status: :unprocessable_entity
     end

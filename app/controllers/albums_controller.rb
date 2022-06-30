@@ -6,8 +6,7 @@ class AlbumsController < ApplicationController
   # GET /albums
   def index
     @albums = Album.all
-
-    render json: @albums
+    render json: @albums, status: 200
   end
 
   # GET /albums/1
@@ -20,9 +19,9 @@ class AlbumsController < ApplicationController
     @album = Album.new(album_params)
 
     if @album.save
-      render json: @album, status: :created, location: @album
+      render json: @album, status: 201, location: @album
     else
-      render json: @album.errors, status: :unprocessable_entity
+      render json: @album.errors, status: 500
     end
   end
 
@@ -31,13 +30,14 @@ class AlbumsController < ApplicationController
     if @album.update(album_params)
       render json: @album
     else
-      render json: @album.errors, status: :unprocessable_entity
+      render json: @album.errors, status: 422
     end
   end
 
   # DELETE /albums/1
   def destroy
     @album.destroy
+    render json: {"message": "deleted", "album": @album}, status: 200
   end
 
   private

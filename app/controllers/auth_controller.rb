@@ -5,9 +5,9 @@ class AuthController < ApplicationController
     secret = Rails.application.secrets.secret_key_base. to_s
     if user && user.authenticate(auth_params[:password])
          token = JWT.encode({user_id: user.id}, secret, 'HS256')
-        render json: {user: user, token: token}
+        render json: {user: user, token: token}, status: 200
     else
-        render json: {errors: user.errors.full_messages}
+        render json: {errors: user.errors.full_messages}, status: 404
     end
   end
 
