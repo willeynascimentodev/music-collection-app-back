@@ -18,13 +18,13 @@ class ApplicationController < ActionController::API
 
     def authorize_logged_in
         if !get_user() 
-            render json: {'errors': 'Not authenticated'}
+            render json: {'errors': 'Not authenticated'}, status: 401
         end
     end
 
     def authorize_admin
         if get_user[:role] != 'admin'
-            render json: {'errors': 'Not authorized'}
+            render json: {'errors': 'Not authorized'}, status: 403
         end
     end
 
