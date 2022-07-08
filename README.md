@@ -8,6 +8,7 @@ Steps to follow in order to install and run the app
 bundle install
 
 
+
 2 - Create Database and Activate Migrations
 
 db::create
@@ -15,14 +16,17 @@ db::create
 db::migrate
 
 
+
 3 - Open the file: 
 
 config -> cors.rb and set origins to allow the specifc url wich will make the requests for this API.
 
 
+
 4 To execute
 
 bin/rails server
+
 
 
 Information:
@@ -32,6 +36,7 @@ Information:
 * Rails version: 7.0.3
 
 * Database: sqlite3
+
 
 
 Resources:
