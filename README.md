@@ -2,17 +2,18 @@
 
 Steps to follow in order to install and run the app
 
-1 - Install
 
-{% filename %}command-line{% endfilename %}
+1 - Install
 
 bundle install
 
+
 2 - Create Database and Activate Migrations
 
-'db::create' 
+db::create
 
-'db::migrate '
+db::migrate
+
 
 3 - Open the file: 
 
@@ -20,8 +21,6 @@ config -> cors.rb and set origins to allow the specifc url wich will make the re
 
 
 4 To execute
-
-{% filename %}command-line{% endfilename %}
 
 bin/rails server
 
