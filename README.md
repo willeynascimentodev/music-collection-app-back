@@ -10,10 +10,9 @@ bundle install
 
 2 - Create Database and Activate Migrations
 
-{% filename %}command-line{% endfilename %}
+'db::create' 
 
-db::create 
-db::migrate 
+'db::migrate '
 
 3 - Open the file: 
 
