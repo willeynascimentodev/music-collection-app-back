@@ -1,24 +1,45 @@
-# README
+# Music Collection App - BackEnd
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Steps to follow in order to install and run the app
 
-Things you may want to cover:
+1 - Install
 
-* Ruby version
+{% filename %}command-line{% endfilename %}
 
-* System dependencies
+bundle install
 
-* Configuration
+2 - Create Database and Activate Migrations
 
-* Database creation
+{% filename %}command-line{% endfilename %}
 
-* Database initialization
+db::create 
+db::migrate 
 
-* How to run the test suite
+3 - Open the file: 
 
-* Services (job queues, cache servers, search engines, etc.)
+config -> cors.rb and set origins to allow the specifc url wich will make the requests for this API.
 
-* Deployment instructions
 
-* ...
+4 To execute
+
+{% filename %}command-line{% endfilename %}
+
+bin/rails server
+
+
+Information:
+
+* Ruby version: 3.1.2
+
+* Rails version: 7.0.3
+
+* Database: sqlite3
+
+
+Resources:
+
+* albums [crud]
+
+* auth [login]
+
+* users[create]
