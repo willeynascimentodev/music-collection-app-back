@@ -3,33 +3,37 @@
 Steps to follow in order to install and run the app
 
 
-1 - Install
+### 1 - Install
 
 bundle install
 
 
 
-2 - Create Database and Activate Migrations
+### 2 - Create Database and Activate Migrations
 
-db::create
+bin/rails db::create
 
-db::migrate
+bin/rails db::migrate
 
 
 
-3 - Open the file: 
+### 3 - Open the file: 
 
 config -> cors.rb and set origins to allow the specifc url wich will make the requests for this API.
 
 
 
-4 To execute
+### 4 To execute
 
 bin/rails server
 
 
 
-Information:
+### 5 - To run automated testes on your postman, use the file: tests.postman_collection
+
+
+
+### Information:
 
 * Ruby version: 3.1.2
 
